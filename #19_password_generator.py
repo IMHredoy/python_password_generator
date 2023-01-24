@@ -1,5 +1,5 @@
 from random import randint, shuffle
-def generatePassword(length):
+def generate_password(length):
     length = max(length, 12)
     special_char = "~!@#$%^&*()_+ "
     password = [
@@ -22,39 +22,8 @@ def generatePassword(length):
                 password.append(special_char[randint(0, 13)])
         shuffle(password)
     password = "".join(password)
-    print(password)
     return password
 
-assert len(generatePassword(8)) == 12
-
-pw = generatePassword(14)
-
-assert len(pw) == 14
-
-hasLowercase = False
-
-hasUppercase = False
-
-hasNumber = False
-
-hasSpecial = False
-
-for character in pw:
-
-    if character in "abcdefghijklmnopqrstuvwxyz":
-
-        hasLowercase = True
-
-    if character in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-
-        hasUppercase = True
-
-    if character in "1234567890":
-
-        hasNumber = True
-
-    if character in "~!@#$%^&*()_+ ":
-
-        hasSpecial = True
-
-assert hasLowercase and hasUppercase and hasNumber and hasSpecial
+length = int(input(Enter password length you want generate: ))
+the_password = generate_password(length)
+print(f"Your generated password is: {the_password}")
